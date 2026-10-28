@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAUD/SCAN — Payment Fraud Detection</title>
+<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;800;900&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-shapes"><span class="sq"></span><span class="ci"></span><span class="tr"></span></div>
+  <div class="ld-title">FRAUD/SCAN</div>
+  <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+  <div class="ld-pct" id="ldPct">0%</div>
+</div>
+
+<canvas id="stars"></canvas>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="logo"><span class="sq"></span><span class="ci"></span><span class="tr"></span> FRAUD/SCAN</div>
+  <div class="controls">
+    <div class="accents" id="accents">
+      <button data-c="#e63946" style="--c:#e63946"></button>
+      <button data-c="#1d4ed8" style="--c:#1d4ed8"></button>
+      <button data-c="#f4b400" style="--c:#f4b400"></button>
+      <button data-c="#10b981" style="--c:#10b981"></button>
+      <label class="picker" title="Custom"><input type="color" id="accentPick" value="#e63946"></label>
+    </div>
+    <button class="lang" id="langBtn"><span data-l="en">EN</span>/<span data-l="fr">FR</span></button>
+    <button class="theme" id="themeBtn" aria-label="theme">
+      <span class="knob">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><g stroke-width="2"><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="geo g1"></div><div class="geo g2"></div><div class="geo g3"></div>
+    <p class="tag reveal" data-i18n="tag"></p>
+    <h1 class="reveal"><span data-i18n="h1a"></span><br><em data-i18n="h1b"></em></h1>
+    <p class="lead reveal" data-i18n="lead"></p>
+    <a href="#method" class="cta reveal" data-i18n="cta"></a>
+  </section>
+
+  <!-- KPIs -->
+  <section class="kpis">
+    <div class="kpi reveal"><b data-count="n">0</b><span data-i18n="k1"></span></div>
+    <div class="kpi reveal"><b data-count="fr">0</b><span data-i18n="k2"></span></div>
+    <div class="kpi reveal"><b data-count="mean">0</b><span data-i18n="k3"></span></div>
+    <div class="kpi reveal"><b data-count="cap">0</b><span data-i18n="k4"></span></div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="block">
+    <h2 class="reveal"><span class="num">01</span><span data-i18n="mTitle"></span></h2>
+    <div class="steps">
+      <div class="step reveal"><i class="sq"></i><h3 data-i18n="s1t"></h3><p data-i18n="s1"></p></div>
+      <div class="step reveal"><i class="ci"></i><h3 data-i18n="s2t"></h3><p data-i18n="s2"></p></div>
+      <div class="step reveal"><i class="tr"></i><h3 data-i18n="s3t"></h3><p data-i18n="s3"></p></div>
+      <div class="step reveal"><i class="sq"></i><h3 data-i18n="s4t"></h3><p data-i18n="s4"></p></div>
+      <div class="step reveal"><i class="ci"></i><h3 data-i18n="s5t"></h3><p data-i18n="s5"></p></div>
+    </div>
+  </section>
+
+  <!-- CHARTS -->
+  <section class="block">
+    <h2 class="reveal"><span class="num">02</span><span data-i18n="c1Title"></span></h2>
+    <div class="card reveal"><button class="info" data-info="hist">i</button><canvas class="chart" id="hist"></canvas>
+      <div class="legend"><span><i class="lg-legit"></i><em data-i18n="legit"></em></span><span><i class="lg-fraud"></i><em data-i18n="fraud"></em></span></div></div>
+  </section>
+
+  <section class="block">
+    <h2 class="reveal"><span class="num">03</span><span data-i18n="c2Title"></span></h2>
+    <div class="card reveal"><button class="info" data-info="scatter">i</button><canvas class="chart tall" id="scatter"></canvas>
+      <div class="legend"><span><i class="lg-ci"></i><em data-i18n="legit"></em></span><span><i class="lg-sq"></i><em data-i18n="fraud"></em></span><span><i class="lg-low"></i>LOW</span><span><i class="lg-med"></i>MED</span><span><i class="lg-high"></i>HIGH</span></div></div>
+  </section>
+
+  <section class="block two">
+    <div>
+      <h2 class="reveal"><span class="num">04</span><span data-i18n="c3Title"></span></h2>
+      <div class="card reveal"><button class="info" data-info="donut">i</button><canvas class="chart sq-c" id="donut"></canvas></div>
+    </div>
+    <div>
+      <h2 class="reveal"><span class="num">05</span><span data-i18n="c4Title"></span></h2>
+      <div class="card reveal"><button class="info" data-info="rate">i</button><canvas class="chart sq-c" id="rate"></canvas></div>
+    </div>
+  </section>
+
+  <!-- HIGH RISK GRID -->
+  <section class="block">
+    <h2 class="reveal"><span class="num">06</span><span data-i18n="gTitle"></span></h2>
+    <p class="sub reveal" data-i18n="gSub"></p>
+    <div class="grid reveal" id="grid"></div>
+  </section>
+
+  <section class="block outro">
+    <h2 class="reveal"><span class="num">07</span><span data-i18n="oTitle"></span></h2>
+    <p class="lead reveal" id="outroText"></p>
+  </section>
+</main>
+
+<footer>FRAUD/SCAN · <span data-i18n="foot"></span></footer>
+
+<div id="tip"></div>
+<div id="modal"><div class="m-box"><button class="m-close">×</button><div class="m-geo"></div><h3 id="mTitle"></h3><div id="mBody"></div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
